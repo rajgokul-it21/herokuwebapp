@@ -17,11 +17,11 @@ st.set_page_config(
 
 
 
-diabetes_model = pickle.load(open('C:\machine learning/diabetes_model.sav', 'rb'))
+diabetes_model = pickle.load(open('C:\Users\RAJGOKUL R M\Documents\streamlitappheroku-main\diabetes_model.sav', 'rb'))
 
-Autism_model = pickle.load(open('C:\machine learning\Autism_model.sav','rb'))
+Autism_model = pickle.load(open('C:\Users\RAJGOKUL R M\Documents\streamlitappheroku-main\Autism_model.sav','rb'))
 
-parkinsons_model = pickle.load(open('C:\machine learning/parkinsons_model (1).sav', 'rb'))
+parkinsons_model = pickle.load(open('C:\Users\RAJGOKUL R M\Documents\streamlitappheroku-main/parkinsons_model (1).sav', 'rb'))
 
 
 
