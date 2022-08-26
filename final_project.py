@@ -74,13 +74,13 @@ if (selected == 'Home'):
     with col2:
      st.header("Autism")
      st.write('''
-     1.**ID** - ID of the patient\n
-     2.**A1_Score to A10_Score** - Score based on Autism Spectrum Quotient (AQ) 10 item screening tool\n
-     3.**age** - Age of the patient in years\n
-     4.**gender** - Gender of the patient( Female = 0, Male = 1)\n
-     5.**jaundice** - Whether the patient had jaundice at the time of birth(if jaundice = 1 or no jaundice = 0)\n
-     6.**autism**- Whether an immediate family member has been diagnosed with autism(if autism = 1  or no autism = 0)\n
-     7.**result** - Score for AQ1-10 screening test\n
+     
+     1.**A1_Score to A10_Score** - Score based on Autism Spectrum Quotient (AQ) 10 item screening tool\n
+     2.**age** - Age of the patient in years\n
+     3.**gender** - Gender of the patient( Female = 0, Male = 1)\n
+     4.**jaundice** - Whether the patient had jaundice at the time of birth(if jaundice = 1 or no jaundice = 0)\n
+     5.**autism**- Whether an immediate family member has been diagnosed with autism(if autism = 1  or no autism = 0)\n
+     6.**result** - Score for AQ1-10 screening test\n
 
 
     ''')
