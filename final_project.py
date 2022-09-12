@@ -25,7 +25,7 @@ parkinsons_model = pickle.load(open('parkinsons_model (1).sav', 'rb'))
 
 
 
-selected = option_menu('Real Time Disease Prediction System',
+selected = option_menu('Live Disease Prediction System',
                                    
                          
                           ['Home','Diabetes Prediction',
