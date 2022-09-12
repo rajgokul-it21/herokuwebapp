@@ -203,7 +203,9 @@ if (selected == 'Autism Prediction'):
            
     with col1:
            jaundice = st.text_input('Whether the child was born with jaundice?')
-         
+    with col2:
+        autism = st.text_input(' Whether an immediate family member has been diagnosed with autism')
+    
 
        
 
@@ -217,7 +219,7 @@ if (selected == 'Autism Prediction'):
     # creating a button for Prediction
    
     if st.button("CHECK UP"):
-        autism_prediction = Autism_model.predict([[A1_Score, A2_Score, A3_Score, A4_Score, A5_Score, A6_Score, A7_Score,A8_Score,A9_Score,A10_Score,age,gender,jaundice]])                          
+        autism_prediction = Autism_model.predict([[A1_Score, A2_Score, A3_Score, A4_Score, A5_Score, A6_Score, A7_Score,A8_Score,A9_Score,A10_Score,age,gender,jaundice,autism]])                          
        
         if (autism_prediction[0] == 1):
          autism_diagnosis = 'The Person is having autism disease'
