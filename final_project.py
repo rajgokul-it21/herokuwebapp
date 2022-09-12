@@ -217,7 +217,7 @@ if (selected == 'Autism Prediction'):
     # creating a button for Prediction
    
     if st.button("CHECK UP"):
-        autism_prediction = Autism_model.predict([[A1_Score, A2_Score, A3_Score, A4_Score, A5_Score, A6_Score, A7_Score,A8_Score,A9_Score,A10_Score,age,gender,jaundice,autism,result]])                          
+        autism_prediction = Autism_model.predict([[A1_Score, A2_Score, A3_Score, A4_Score, A5_Score, A6_Score, A7_Score,A8_Score,A9_Score,A10_Score,age,gender,jaundice]])                          
        
         if (autism_prediction[0] == 1):
          autism_diagnosis = 'The Person is having autism disease'
