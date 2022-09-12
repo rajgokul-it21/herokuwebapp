@@ -53,7 +53,7 @@ selected = option_menu('Live Disease Prediction System',
 
 #precaustion
 if (selected == 'Home'):
-    original_title = '<p style="font-family:sans sarif;  font-size: 50px;text-align:center">Real Time Disease Prediction System</p>'
+    original_title = '<p style="font-family:sans sarif;  font-size: 50px;text-align:center">Live Disease Prediction System</p>'
     st.markdown(original_title, unsafe_allow_html=True)
     st.title('Parameters')
     col1, col2, col3 = st.columns(3)
