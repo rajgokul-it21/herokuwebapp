@@ -147,9 +147,9 @@ if (selected == 'Diabetes Prediction'):
         diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
        
         if (diab_prediction[0] == 1):
-          diab_diagnosis = 'The person is diabetic'
+          diab_diagnosis = 'The Person is diabetic'
         else:
-          diab_diagnosis = 'The person is not diabetic'
+          diab_diagnosis = 'The Person is not diabetic'
          
        
     st.success(diab_diagnosis)
@@ -163,53 +163,48 @@ if (selected == 'Autism Prediction'):
    
     # page title
     st.title('Autism Prediction')
-   
     col1, col2, col3 = st.columns(3)
    
     with col1:
-        A1_Score = st.text_input('A1_Score')
+        A1_Score = st.text_input('Whether the child look at you When you call his/her name?')
        
     with col2:
-        A2_Score = st.text_input('A2_Score')
+        A2_Score = st.text_input('How easy it is for you to get eye contact with the child?')
        
     with col3:
-        A3_Score = st.text_input('A3_Score')
+        A3_Score = st.text_input('Does your child point to indicate that he/she wants something?')
        
     with col1:
-        A4_Score = st.text_input('A4_Score')
+        A4_Score = st.text_input('Does your child point to share interest with you?')
        
     with col2:
-        A5_Score = st.text_input('A5_Score')
+        A5_Score = st.text_input('Does your child pretend?')
        
     with col3:
-        A6_Score = st.text_input('A6_Score')
+        A6_Score = st.text_input('Does your child follow when you are looking ')
        
     with col1:
-        A7_Score = st.text_input('A7_Score')
+        A7_Score = st.text_input('If you or someone else in the family is visibly upset, dose your child shows signs of warning to comfort them?')
        
     with col2:
-        A8_Score = st.text_input('A8_Score')
+        A8_Score = st.text_input('Does your child talk back whwn you talk?')
        
     with col3:
-        A9_Score = st.text_input('A9_Score')
+        A9_Score = st.text_input('Does your child use simple gestures?')
        
     with col1:
-        A10_Score = st.text_input('A10_Score')
+        A10_Score = st.text_input('Does your child stare at nothing with no apparent purpose?')
        
     with col2:
-        age = st.text_input('age')
+        age = st.text_input('Age of the child')
        
     with col3:
-            gender = st.text_input('gender')
+            gender = st.text_input('Gender of the child')
            
     with col1:
-           jaundice = st.text_input('jaundice')
+           jaundice = st.text_input('Whether the child was born with jaundice?')
          
-    with col2:
-        autism = st.text_input('autism')
-       
-    with col3:
-        result = st.text_input('result')
+
        
 
        
@@ -225,9 +220,9 @@ if (selected == 'Autism Prediction'):
         autism_prediction = Autism_model.predict([[A1_Score, A2_Score, A3_Score, A4_Score, A5_Score, A6_Score, A7_Score,A8_Score,A9_Score,A10_Score,age,gender,jaundice,autism,result]])                          
        
         if (autism_prediction[0] == 1):
-         autism_diagnosis = 'The person is having autism disease'
+         autism_diagnosis = 'The Person is having autism disease'
         else:
-          autism_diagnosis = 'The person does not have any autism disease'
+          autism_diagnosis = 'The Person does not have any autism disease'
        
     st.success(autism_diagnosis)
        
@@ -318,9 +313,9 @@ if (selected == "Parkinsons Prediction"):
         parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
        
         if (parkinsons_prediction[0] == 1):
-          parkinsons_diagnosis = "The person has Parkinson's disease"
+          parkinsons_diagnosis = "The Person has Parkinson's disease"
         else:
-          parkinsons_diagnosis = "The person does not have Parkinson's disease"
+          parkinsons_diagnosis = "The Person does not have Parkinson's disease"
        
     st.success(parkinsons_diagnosis)
    
