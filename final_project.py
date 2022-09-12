@@ -205,6 +205,9 @@ if (selected == 'Autism Prediction'):
            jaundice = st.text_input('Whether the child was born with jaundice?')
     with col2:
         autism = st.text_input(' Whether an immediate family member has been diagnosed with autism')
+    with col3:
+        result = st.text_input('Score for AQ1-10 screening test')
+    
     
 
        
