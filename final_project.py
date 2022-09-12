@@ -376,3 +376,5 @@ if (selected == 'Precautions'):
     6.Regular Aerobic Exercise\n
     7.CoQ10\n
     ''')
+
+        
