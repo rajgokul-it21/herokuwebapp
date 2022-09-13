@@ -198,7 +198,7 @@ if (selected == 'Autism Prediction'):
         A10_Score = st.text_input('Does your child stare at nothing with no apparent purpose?')
        
     with col2:
-        age = st.text_input('Age of the child')
+        age = st.text_input('Enter the Age of the child(Eg.12)')
        
     with col3:
             gender = st.text_input(' Gender of the child(MALE == 1 OR FEMALE ==0)')
