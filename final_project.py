@@ -163,6 +163,8 @@ if (selected == 'Autism Prediction'):
    
     # page title
     st.title('Autism Prediction')
+    st.write('(HINT: Yes == 1 , No == 0)')
+             
     col1, col2, col3 = st.columns(3)
    
     with col1:
