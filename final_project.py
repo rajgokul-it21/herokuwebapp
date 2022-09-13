@@ -201,7 +201,7 @@ if (selected == 'Autism Prediction'):
         age = st.text_input('Age of the child')
        
     with col3:
-            gender = st.text_input('Gender of the child(MALE == 1 OR FEMALE ==0)')
+            gender = st.text_input(' Gender of the child(MALE == 1 OR FEMALE ==0)')
            
     with col1:
            jaundice = st.text_input('Whether the child was born with jaundice?')
