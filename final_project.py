@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Aug 22 10:07:11 2022
-
 @author: student
 """
 
 import pickle
 import streamlit as st
+import difflib
 from streamlit_option_menu import option_menu
 st.set_page_config(
         page_title="PreDizzy",
@@ -23,20 +23,24 @@ Autism_model = pickle.load(open('Autism_model.sav','rb'))
 
 parkinsons_model = pickle.load(open('parkinsons_model (1).sav', 'rb'))
 
+loaded_model = pickle.load(open('hospital_recommend.sav', 'rb'))
+
+loaded_model1 = pickle.load(open('similarity.sav', 'rb'))
+
 
 
 selected = option_menu('Live Disease Prediction System',
-                                   
-                         
+                                    
+                          
                           ['Home','Diabetes Prediction',
                            'Autism Prediction',
-                           'Parkinsons Prediction','Precautions'],
-                         
-                          icons=['house-fill','activity','heart','person','shield-fill-plus'], menu_icon="cast",
+                           'Parkinsons Prediction','Recommendations','Precautions'],
+                          
+                          icons=['house-fill','activity','heart','person','geo alt','shield-fill-plus'], menu_icon="cast",
                           default_index=0,orientation="horizontal",
                           styles={
                               "background-color":"light green",
-                           
+                            
                               "container":{"padding":" ","background-color":"#ABB2B9"},
                               "icon":{"color":"light red","font-size":"30px"},
                               "nav-link ":{
@@ -44,14 +48,14 @@ selected = option_menu('Live Disease Prediction System',
                                              "text-align":"left",
                                              "margin":"0px",
                                              "--hover-color":"#eee"},
-                             
-                                           
+                              
+                                            
                                "nav-link-selected":{"background-color":"green"},
                                                               },)
 
 
 
-#precaustion
+#home page
 if (selected == 'Home'):
     original_title = '<p style="font-family:sans sarif;  font-size: 50px;text-align:center">Live Disease Prediction System</p>'
     st.markdown(original_title, unsafe_allow_html=True)
@@ -81,8 +85,6 @@ if (selected == 'Home'):
      4.**jaundice** - Whether the patient had jaundice at the time of birth(if jaundice = 1 or no jaundice = 0)\n
      5.**autism**- Whether an immediate family member has been diagnosed with autism(if autism = 1  or no autism = 0)\n
      6.**result** - Score for AQ1-10 screening test\n
-
-
     ''')
    
 
@@ -96,7 +98,6 @@ if (selected == 'Home'):
     4.**MDVP:Jitter(%),MDVP:Jitter(Abs),MDVP:RAP,MDVP:PPQ,Jitter:DDP** - Several measures of variation in fundamental frequency\n
     5.**MDVP:Shimmer,MDVP:Shimmer(dB),Shimmer:APQ3,Shimmer:APQ5,MDVP:APQ,Shimmer:DDA**- Several measures of variation in amplitude\n
     6.**NHR,HNR**- Two measures of ratio of noise to tonal components in the voice\n
-
     7.**RPDE,D2**- Two nonlinear dynamical complexity measures\n
     8.**DFA** - Signal fractal scaling exponent\n
     9.**spread1,spread2,PPE** - Three nonlinear measures of fundamental frequency variation\n
@@ -378,5 +379,42 @@ if (selected == 'Precautions'):
     6.Regular Aerobic Exercise\n
     7.CoQ10\n
     ''')
+    
+#recommendations
+if (selected == "Recommendations"):
+    
+    # page title
+    st.title("Hospital Recommendation System")
+    
+    
+    option = st.selectbox(
+        'Choose your location!',
+        ('Chennai','Thiruvottyur','Madhavaram','Tondiarpet','Royapuram','Coimbatore','Salem'))
 
-        
+    st.write('You selected:', option)
+        # code for Prediction
+
+    if st.button('Recommend'):
+       list_of_all_titles = loaded_model['CITY'].tolist()
+       print(list_of_all_titles)
+       find_close_match = difflib.get_close_matches(option, list_of_all_titles)
+
+       close_match = find_close_match[0]
+
+       index_of_the_movie = loaded_model[loaded_model.CITY == close_match]['index'].values[0]
+
+       similarity_score = list(enumerate(loaded_model1[index_of_the_movie]))
+
+       sorted_similar_movies = sorted(similarity_score, key = lambda x:x[1], reverse = True) 
+       
+       i = 1
+
+       for movie in sorted_similar_movies:
+         index = movie[0]
+         hospital_names = loaded_model[loaded_model.index==index]['hospital_names'].values[0]
+         title_from_index = loaded_model[loaded_model.index==index]['CITY'].values[0]
+      
+         if (i<=10):
+             
+           st.write(i, '.',hospital_names,title_from_index)
+           i+=1  
